@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Provider1 extends ChangeNotifier{
-
+class Provider1 extends ChangeNotifier {
   ///////// Initializing provider, using singleton factory pattern ///////////
   static final Provider1 _instance = Provider1._internal();
   factory Provider1() {
@@ -17,22 +16,20 @@ class Provider1 extends ChangeNotifier{
   String variabl_2 = "default";
 
 ////// Functions for changing state ///////////
-changeVariabl_1(String text) {
-  counter_1++;
-  variabl_1 = "${text}_$counter_1";
-  notifyAll();
-}
+  changeVariabl_1(String text) {
+    counter_1++;
+    variabl_1 = "${text} $counter_1 times";
+    notifyAll();
+  }
 
-changeVariabl_2(String text) {
-  counter_2 = counter_2 + 100;
-  variabl_2 = "${text}_$counter_2";
-  notifyAll();
-}
+  changeVariabl_2(String text) {
+    counter_2 = counter_2 + 100;
+    variabl_2 = "${text} $counter_2 times/100";
+    notifyAll();
+  }
 
 //call to notify listeners and apply new state
   notifyAll() {
     notifyListeners();
   }
-
 }
-

@@ -5,6 +5,7 @@ import 'package:testprovider/providers/provider2.dart';
 
 import 'control_bar.dart';
 import 'main_area.dart';
+import 'slider_area.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,17 +39,17 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(title: const Text("DEmo")),
-    body: Column(
-      children: [
-        MainArea(),
-        ControlBar()
-      ],
-    ),
-  );
-
-}
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("DEmo")),
+      body: Column(
+        children: [
+          MainArea(), // text fields
+          ControlBar(), // buttons section
+          SliderBar() //slider section
+        ],
+      ),
+    );
+  }
 }
