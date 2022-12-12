@@ -6,7 +6,21 @@ class SliderBar extends StatelessWidget {
   SliderBar({Key? key}) : super(key: key);
 
   void changeSlider(double val) {
-    print(val);
+    final _provider2 = Provider2();
+    _provider2.changeSlider(val);
+    print(val.toInt());
+  }
+
+  void sliderIncBtn() {
+    final _provider2 = Provider2();
+    _provider2.incSliderVal();
+    print('Slider vale ++: ${_provider2.sliderVal}');
+  }
+
+  void sliderDecBtn() {
+    final _provider2 = Provider2();
+    _provider2.decSliderVal();
+    print('Slider vale --: ${_provider2.sliderVal}');
   }
 
   @override
@@ -19,16 +33,16 @@ class SliderBar extends StatelessWidget {
           children: [
             Text(model_provider2.variable),
             Slider(
-                min: 1,
+                min: 0,
                 max: 10,
-                divisions: 2,
-                value: 4,
+                divisions: 10,
+                value: model_provider2.sliderVal,
                 onChanged: changeSlider),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text('-')),
-                ElevatedButton(onPressed: () {}, child: Text('+')),
+                ElevatedButton(onPressed: sliderDecBtn, child: Text('-')),
+                ElevatedButton(onPressed: sliderIncBtn, child: Text('+')),
               ],
             )
           ],
